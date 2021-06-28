@@ -237,6 +237,16 @@ Game.prototype.createBlock = function(pos, val) {
 }
 
 Game.prototype.setBlock = function(pos, val) {
+  my = 63
+  My = 71
+  mx = -5
+  Mx = 5
+  mz = -5
+  Mz = 5
+  // console.log("old" + old + ", new: " + val + "now: " + game.getBlock(pos))
+  if (pos[0] < mx || pos[0] > Mx || pos[1] < my || pos[1] > My || pos[2] < mz || pos[2] > Mz) {
+    return
+  }
   if (typeof val === 'string') val = this.materials.find(val)
   var old = this.voxels.voxelAtPosition(pos, val)
   var c = this.voxels.chunkAtPosition(pos)
