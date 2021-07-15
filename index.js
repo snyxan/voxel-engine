@@ -65,7 +65,8 @@ function Game(opts) {
     width: this.width,
     height: this.height,
     skyColor: this.skyColor,
-    antialias: this.antialias
+    antialias: this.antialias,
+    preserveDrawingBuffer: true,
   })
   this.view.bindToScene(this.scene)
   this.camera = this.view.getCamera()
