@@ -237,7 +237,7 @@ Game.prototype.createBlock = function(pos, val) {
   return true
 }
 
-Game.prototype.setBlock = function(pos, val) {
+Game.prototype.setBlock = function(pos, val, force) {
   my = 63
   My = 71
   mx = -5
@@ -246,7 +246,9 @@ Game.prototype.setBlock = function(pos, val) {
   Mz = 5
   // console.log("old" + old + ", new: " + val + "now: " + game.getBlock(pos))
   if (pos[0] < mx || pos[0] > Mx || pos[1] < my || pos[1] > My || pos[2] < mz || pos[2] > Mz) {
-    return
+    if (force == null) {
+      return
+    }
   }
   if (typeof val === 'string') val = this.materials.find(val)
   var old = this.voxels.voxelAtPosition(pos, val)
