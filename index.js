@@ -616,6 +616,7 @@ Game.prototype.pin = pin
 // # Misc internal methods
 
 Game.prototype.onControlChange = function(gained, stream) {
+  console.log("OnControlChange...")
   this.paused = false
 
   if (!gained && !this.optout) {
